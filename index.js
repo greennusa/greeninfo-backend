@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors());
-const PORT = process.env.PORT || 3000;
+const PORT = 3333;
 
 // Cache configuration
 let cache = {};
