@@ -81,8 +81,8 @@ const fetchUsage = async () => {
         },
         memory: {
             total: (memory.total / (1024 ** 3)).toFixed(2) + ' GB',
-            used: (memory.used / (1024 ** 3)).toFixed(2) + ' GB',
-            usage: ((memory.used / memory.total) * 100).toFixed(2) + ' %',
+            used: ((memory.total-memory.free) / (1024 ** 3)).toFixed(2) + ' GB',
+            usage: (((memory.total-memory.free) / memory.total) * 100).toFixed(2) + ' %',
         },
         storage: disk.map(d => ({
             filesystem: d.fs,
