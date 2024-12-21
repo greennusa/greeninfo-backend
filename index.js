@@ -113,6 +113,15 @@ app.get('/usage', async (req, res) => {
     }
 });
 
+app.get('/memory', async (req, res) => {
+    try {
+        const memory = await si.mem();
+        res.json(memory);
+    } catch (err) {
+        res.status(500).send({ error: 'Failed to fetch memory info' });
+    }
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
